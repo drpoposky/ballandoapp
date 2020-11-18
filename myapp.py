@@ -7,7 +7,7 @@ import dash_html_components as html
 from dash.dependencies import Input, Output
 
 app = dash.Dash(__name__)
-server = app.server
+#server = app.server
 url = 'https://it.wikipedia.org/wiki/Ballando_con_le_stelle_(quindicesima_edizione)'
 dfs = pd.read_html(url,
                    attrs={"class": "wikitable"},
@@ -16,11 +16,12 @@ dfs.extend(pd.read_html(url,
                    attrs={"class": "wikitable plainrowheaders"},
                    header=0))
 
-voti = [dfs[5],dfs[6],dfs[8],dfs[10],dfs[13],dfs[16],dfs[19],dfs[23],dfs[25]]
+voti = [dfs[5],dfs[6],dfs[8],dfs[10],dfs[13],dfs[16],dfs[19],dfs[23]]
 for i in range(len(voti)):
     new_header = voti[i].iloc[0] #grab the first row for the header
     voti[i] = voti[i][1:] #take the data less the header row
     voti[i].columns = new_header #set the header row as the df header
+
 col_options = [dict(label = x, value =x) for x in sorted(voti[0]['Concorrenti'].unique())]
 
 
@@ -34,7 +35,7 @@ app.layout = html.Div(children=[
              [Input('Concorrenti','value')])
 
 def cb(Concorrenti):
-    for i in range(len(voti)-1):
+    for i in range(len(voti)):
         first_epis_votes = voti[i]
         if i==0:
             final =(first_epis_votes[first_epis_votes['Concorrenti']==Concorrenti])
@@ -57,7 +58,8 @@ def cb(Concorrenti):
                 "Zazzaroni": "Black", "Canino": "MediumPurple", "Canino": "MediumPurple", 'Smith':'Red','Lucarelli':'HotPink','Mariotto':'YellowGreen'
             })
     fig.update_layout(#template="simple_white",
-                      yaxis=dict(range=[-0.02,10.5]),xaxis=dict(range=[0.98,9.02]))
+                      yaxis=dict(range=[-0.05,10.5]),xaxis=dict(range=[0.98,9.02]))
+
     fig.update_traces(mode="markers+lines")
     fig.update_layout(autosize=True,
 
