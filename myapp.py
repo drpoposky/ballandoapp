@@ -17,12 +17,12 @@ dfs.extend(pd.read_html(url,
                    header=0))
 
 voti = [dfs[5],dfs[6],dfs[8],dfs[10],dfs[13],dfs[16],dfs[19],dfs[23],dfs[25]]
-
-col_options = [dict(label = x, value =x) for x in sorted(voti[0]['Concorrenti'].unique())]
 for i in range(len(voti)):
     new_header = voti[i].iloc[0] #grab the first row for the header
     voti[i] = voti[i][1:] #take the data less the header row
     voti[i].columns = new_header #set the header row as the df header
+col_options = [dict(label = x, value =x) for x in sorted(voti[0]['Concorrenti'].unique())]
+
 
 app.layout = html.Div(children=[
     html.H1("Ballando con le stelle",style={'color': 'gold', 'fontSize': 14}),
