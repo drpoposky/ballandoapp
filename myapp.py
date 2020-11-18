@@ -34,7 +34,7 @@ app.layout = html.Div(children=[
              [Input('Concorrenti','value')])
 
 def cb(Concorrenti):
-    for i in range(len(voti)):
+    for i in range(len(voti)-1):
         first_epis_votes = voti[i]
         if i==0:
             final =(first_epis_votes[first_epis_votes['Concorrenti']==Concorrenti])
@@ -57,7 +57,7 @@ def cb(Concorrenti):
                 "Zazzaroni": "Black", "Canino": "MediumPurple", "Canino": "MediumPurple", 'Smith':'Red','Lucarelli':'HotPink','Mariotto':'YellowGreen'
             })
     fig.update_layout(#template="simple_white",
-                      yaxis=dict(range=[0,10.5]),xaxis=dict(range=[0.98,8.02]))
+                      yaxis=dict(range=[-0.02,10.5]),xaxis=dict(range=[0.98,9.02]))
     fig.update_traces(mode="markers+lines")
     fig.update_layout(autosize=True,
 
