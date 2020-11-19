@@ -21,6 +21,9 @@ for i in range(len(voti)):
     new_header = voti[i].iloc[0] #grab the first row for the header
     voti[i] = voti[i][1:] #take the data less the header row
     voti[i].columns = new_header #set the header row as the df header
+    voti[i]['puntata'] = i+1
+    voti[i]['Concorrenti'] = voti[i]['Concorrenti'].str.replace(r'\[\d+\]', '')
+    voti[i]['Concorrenti'] = voti[i]['Concorrenti'].str.replace(r'Samuel Peron', 'Marco De Angelis')
 
 col_options = [dict(label = x, value =x) for x in sorted(voti[0]['Concorrenti'].unique())]
 
@@ -44,7 +47,7 @@ def cb(Concorrenti):
 
 
     final = final.astype({'Zazzaroni': 'int32','Canino': 'int32','Smith': 'int32','Lucarelli': 'int32','Mariotto': 'int32'})
-    final['puntata']=range(1,(final.shape[0]+1))
+    #final['puntata']=range(1,(final.shape[0]+1))
     df = final #px.data.gapminder()#Dataset
     Concorrenti = Concorrenti if Concorrenti else sorted(voti[0]['Concorrenti'].unique())[0]
     df_year = df.query("Concorrenti == @Concorrenti")
