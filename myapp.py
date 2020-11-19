@@ -51,7 +51,7 @@ def cb(Concorrenti):
     df = final #px.data.gapminder()#Dataset
     Concorrenti = Concorrenti if Concorrenti else sorted(voti[0]['Concorrenti'].unique())[0]
     df_year = df.query("Concorrenti == @Concorrenti")
-    fig = px.line(df_year, x="puntata", y=['Zazzaroni','Canino','Lucarelli','Smith','Mariotto'],
+    fig = px.line(df_year, x="puntata", y=['Zazzaroni','Canino','Smith','Lucarelli','Mariotto'],
                   title=Concorrenti,labels={
                      "puntata": "Puntata",
                      "value": "Punteggio",
