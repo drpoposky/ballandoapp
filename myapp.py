@@ -27,7 +27,7 @@ col_options = [dict(label = x, value =x) for x in sorted(voti[0]['Concorrenti'].
 
 app.layout = html.Div(children=[
     html.H1("Ballando con le stelle",style={'color': 'gold', 'fontSize': 14}),
-    dcc.Dropdown(id = "Concorrenti", value = sorted(voti[0]['Concorrenti'].unique())[0],options = col_options),
+    dcc.Dropdown(id = "Concorrenti", value = sorted(voti[0]['Concorrenti'].unique())[0],options = col_options, searchable=False),
     dcc.Graph(id="graph", figure= {})
 ])
 
