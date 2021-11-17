@@ -8,7 +8,7 @@ from dash.dependencies import Input, Output
 
 app = dash.Dash(__name__)
 server = app.server
-url = 'https://it.wikipedia.org/wiki/Ballando_con_le_stelle_(quindicesima_edizione)'
+url = 'https://it.wikipedia.org/wiki/Ballando_con_le_stelle_(sedicesima_edizione)'
 dfs = pd.read_html(url,
                    attrs={"class": "wikitable"},
                    header=0)
