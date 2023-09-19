@@ -31,7 +31,7 @@ for i in range(len(voti)):
 
 app.layout = html.Div(children=[
     html.H1("Ballando con le stelle",style={'color': 'gold', 'fontSize': 14}),
-   # dcc.Dropdown(id = "Concorrenti", value = sorted(voti[0]['Concorrenti'].unique())[0],options = col_options, searchable=False),
+    dcc.Dropdown(id = "Concorrenti", value = 'test',options = ['test_1', 'test_2'], searchable=False),
     dcc.Graph(id="graph", figure= {})
 ])
 
