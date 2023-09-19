@@ -9,7 +9,7 @@ from dash.dependencies import Input, Output
 
 app = dash.Dash(__name__)
 server = app.server
-url = 'https://it.wikipedia.org/wiki/Ballando_con_le_stelle_(sedicesima_edizione)'
+url = 'https://it.wikipedia.org/wiki/Ballando_con_le_stelle_(quindicesime_edizione)'
 dfs = pd.read_html(url,
                    attrs={"class": "wikitable"},
                    header=0)
@@ -26,7 +26,7 @@ for i in range(len(voti)):
     voti[i]['Concorrenti'] = voti[i]['Concorrenti'].str.replace(r'\[\d+\]', '')
     voti[i]['Concorrenti'] = voti[i]['Concorrenti'].str.replace(r'Samuel Peron', 'Marco De Angelis')
 
-col_options = [dict(label = x, value =x) for x in sorted(voti[0]['Concorrenti'].unique())]
+col_options = [dict(label = x, value =x) for x in sorted(voti[0]['Concorrenti'].unique()) if voti]
 
 
 app.layout = html.Div(children=[
