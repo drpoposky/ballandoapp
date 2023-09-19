@@ -26,12 +26,12 @@ for i in range(len(voti)):
     voti[i]['Concorrenti'] = voti[i]['Concorrenti'].str.replace(r'\[\d+\]', '')
     voti[i]['Concorrenti'] = voti[i]['Concorrenti'].str.replace(r'Samuel Peron', 'Marco De Angelis')
 
-col_options = [dict(label = x, value =x) for x in sorted(voti[0]['Concorrenti'].unique()) if voti]
+# col_options = [dict(label = x, value =x) for x in sorted(voti[0]['Concorrenti'].unique()) if voti]
 
 
 app.layout = html.Div(children=[
     html.H1("Ballando con le stelle",style={'color': 'gold', 'fontSize': 14}),
-    dcc.Dropdown(id = "Concorrenti", value = sorted(voti[0]['Concorrenti'].unique())[0],options = col_options, searchable=False),
+   # dcc.Dropdown(id = "Concorrenti", value = sorted(voti[0]['Concorrenti'].unique())[0],options = col_options, searchable=False),
     dcc.Graph(id="graph", figure= {})
 ])
 
