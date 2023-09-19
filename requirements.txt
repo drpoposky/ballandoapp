@@ -16,7 +16,7 @@ ipython-genutils==0.2.0
 itsdangerous==1.1.0
 jedi==0.17.2
 Jinja2==2.11.2
-lxml==4.9
+lxml
 MarkupSafe==1.1.1
 numpy==1.23.2
 pandas==1.5.3
