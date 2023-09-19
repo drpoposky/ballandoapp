@@ -16,10 +16,10 @@ ipython-genutils==0.2.0
 itsdangerous==1.1.0
 jedi==0.17.2
 Jinja2==2.11.2
-lxml==4.6.1
+lxml
 MarkupSafe==1.1.1
-numpy==1.19.4
-pandas==1.1.4
+numpy
+pandas
 parso==0.7.1
 pickleshare==0.7.5
 plotly==4.12.0
