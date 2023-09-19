@@ -17,7 +17,7 @@ dfs.extend(pd.read_html(url,
                    attrs={"class": "wikitable plainrowheaders"},
                    header=0))
 
-voti = [x for x in dfs if ('Ordinediuscita' in x.columns) and ('Esito' not in x.columns) and ('Puntibonus' in x.columns)]
+voti = [x for x in dfs if ('Ordine di uscita' in x.columns) and ('Esito' not in x.columns) and ('Punti bonus' in x.columns)]
 for i in range(len(voti)):
     new_header = voti[i].iloc[0] #grab the first row for the header
     voti[i] = voti[i][1:] #take the data less the header row
