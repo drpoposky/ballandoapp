@@ -19,7 +19,7 @@ Jinja2==2.11.2
 lxml
 MarkupSafe==1.1.1
 numpy
-pandas==1.1.4
+pandas==1.5.3
 parso==0.7.1
 pickleshare==0.7.5
 plotly==4.12.0
