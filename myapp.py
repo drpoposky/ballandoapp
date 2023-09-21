@@ -62,7 +62,7 @@ def cb(Concorrenti):
                 "Zazzaroni": "Black", "Canino": "MediumPurple", "Canino": "MediumPurple", 'Smith':'Red','Lucarelli':'HotPink','Mariotto':'YellowGreen'
             })
     fig.update_layout(#template="simple_white",
-                      yaxis=dict(range=[-0.05,10.5]),xaxis=dict(range=[0.98,9.02]))
+                      yaxis=dict(range=[-0.05,10.5]),xaxis=dict(range=[0.98,11.02]))
 
     fig.update_traces(mode="markers+lines")
     fig.update_layout(autosize=True,
